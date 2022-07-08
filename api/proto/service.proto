@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package service.v1;
+
+option go_package = "/service/server";
+
+message AddRequest {
+  double amount = 1;
+}
+
+message AddResponse {
+  double score = 1;
+  int32 rating = 2;
+  repeated double neighbors = 3;
+}
+
+service Service {
+  rpc Add(AddRequest) returns (AddResponse);
+}
